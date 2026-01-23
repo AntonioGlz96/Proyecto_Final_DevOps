@@ -1,18 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Despliegue DevOps Exitoso</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Pipeline Dashboard</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f4; }
-        .container { border: 2px solid #28a745; display: inline-block; padding: 20px; background: white; border-radius: 10px; }
-        h1 { color: #28a745; }
+        :root {
+            --primary: #141e30;
+            --secondary: #243b55;
+            --accent: #00d2ff;
+            --jenkins: #d33833;
+            --ansible: #5bbdbf;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            max-width: 500px;
+        }
+        .status-badge {
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        h1 { margin: 10px 0; font-size: 2rem; color: var(--accent); }
+        p { color: #ccc; line-height: 1.6; }
+        .pipeline-flow {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        .step { font-size: 0.7rem; color: #aaa; }
+        .user-tag {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        strong { color: var(--accent); }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Hola! Pipeline funcionando correctamente</h1>
-        <p>Esta aplicación fue construida por Jenkins y desplegada por Ansible.</p>
-        <p>Usuario: <strong>dmset</strong></p>
+    <div class="card">
+        <div class="status-badge">● System Online</div>
+        <h1>Pipeline DevOps</h1>
+        <p>Despliegue automatizado exitoso en clúster <strong>Minikube</strong>.</p>
+        
+        <div class="pipeline-flow">
+            <div class="step">📦 Docker</div>
+            <div class="step">⚙️ Jenkins</div>
+            <div class="step">🚀 Ansible</div>
+            <div class="step">☸️ K8s</div>
+        </div>
+
+        <div class="user-tag">
+            Responsable del Proyecto: <strong>dmset</strong>
+        </div>
     </div>
 </body>
 </html>
